@@ -19,7 +19,6 @@ h2 {
   margin-bottom: 10px;
 }
 
-/* FIX: título dentro del grid */
 .grid > h2 {
   grid-column: 1 / -1;
   text-align: center;
@@ -33,7 +32,7 @@ h2 {
   display: flex;
   justify-content: space-around;
   background: white;
-  padding: 10px;
+  padding: 12px;
   border-radius: 10px;
   margin-bottom: 15px;
 }
@@ -94,7 +93,7 @@ button:hover {
 }
 
 /* ========================= */
-/* BOTONES POR ACCIÓN (COLORES VIVOS) */
+/* BOTONES POR ACCIÓN */
 /* ========================= */
 
 .btn-add {
@@ -127,10 +126,9 @@ button:hover {
   border-left: 5px solid gray;
   transition: 0.2s;
 
-  /* FIX IMPORTANTE: mejor control interno */
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 
 .card:hover {
@@ -138,13 +136,14 @@ button:hover {
 }
 
 /* ========================= */
-/* BOTONES DENTRO DE CARDS (EVITA QUE SE MONTE TODO) */
+/* BOTONES EN CARD (IMPORTANTE) */
 /* ========================= */
 
-.card button {
-  width: auto;
-  margin: 2px 4px 0 0;
-  display: inline-block;
+.card-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
 }
 
 /* ========================= */
@@ -195,6 +194,40 @@ header {
   margin-bottom: 20px;
   font-size: 15px;
   text-align: center;
+}
+
+/* ========================= */
+/* FOOTER PRO */
+/* ========================= */
+
+.footer {
+  margin-top: 40px;
+  padding: 25px 15px;
+  text-align: center;
+  background: #ffffff;
+  border-top: 1px solid #e5e7eb;
+  border-radius: 12px 12px 0 0;
+}
+
+.footer p {
+  margin: 0;
+  font-weight: 700;
+  color: #4f46e5;
+  font-size: 15px;
+}
+
+.footer span {
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.footer small {
+  display: block;
+  margin-top: 6px;
+  font-size: 11px;
+  color: #9ca3af;
 }
 
 /* ========================= */

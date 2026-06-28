@@ -16,6 +16,13 @@ h1,
 h2 {
   text-align: center;
   width: 100%;
+  margin-bottom: 10px;
+}
+
+/* FIX IMPORTANTE: títulos dentro de grid */
+.grid > h2 {
+  grid-column: 1 / -1;
+  text-align: center;
 }
 
 /* ========================= */
@@ -66,7 +73,7 @@ select {
 }
 
 /* ========================= */
-/* BOTONES BASE (NO NEGRO) */
+/* BOTONES BASE */
 /* ========================= */
 
 button {
@@ -78,7 +85,7 @@ button {
   border: none;
   border-radius: 6px;
   transition: 0.2s;
-  background: #4f46e5; /* azul vivo */
+  background: #4f46e5;
 }
 
 button:hover {
@@ -87,19 +94,19 @@ button:hover {
 }
 
 /* ========================= */
-/* BOTONES POR ACCIÓN (COLORES VIVOS) */
+/* BOTONES POR ACCIÓN */
 /* ========================= */
 
 .btn-add {
-  background: #22c55e; /* verde vivo */
+  background: #22c55e; /* verde */
 }
 
 .btn-delete {
-  background: #ef4444; /* rojo vivo */
+  background: #ef4444; /* rojo */
 }
 
 .btn-edit {
-  background: #f59e0b; /* amarillo vivo */
+  background: #f59e0b; /* amarillo */
 }
 
 /* ========================= */
@@ -179,7 +186,6 @@ header {
 /* RESPONSIVE */
 /* ========================= */
 
-/* Tablet */
 @media (max-width: 768px) {
   .stats {
     flex-direction: column;
@@ -197,7 +203,6 @@ header {
   }
 }
 
-/* Celular */
 @media (max-width: 480px) {
   .app {
     padding: 10px;

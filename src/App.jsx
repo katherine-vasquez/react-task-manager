@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import "./App.css";
 
 export default function App() {
-  // 💾 ESTADO CON LOCALSTORAGE + TAREAS DE EJEMPLO
   const [tasks, setTasks] = useState(() => {
     try {
       const saved = localStorage.getItem("tasks");
@@ -84,31 +83,26 @@ export default function App() {
   const [filter, setFilter] = useState("Todas");
   const [priorityFilter, setPriorityFilter] = useState("Todas");
 
-  // 💾 GUARDAR EN LOCALSTORAGE
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
-  // 🔍 FILTRADO + BÚSQUEDA
- const filteredTasks = tasks.filter((task) => {
-  const matchSearch = task.title
-    .toLowerCase()
-    .includes(search.toLowerCase());
+  const filteredTasks = tasks.filter((task) => {
+    const matchSearch = task.title
+      .toLowerCase()
+      .includes(search.toLowerCase());
 
-  const matchStatus =
-    filter === "Todas"
-      ? true
-      : task.status === filter;
+    const matchStatus =
+      filter === "Todas" ? true : task.status === filter;
 
-  const matchPriority =
-    priorityFilter === "Todas"
-      ? true
-      : task.priority === priorityFilter;
+    const matchPriority =
+      priorityFilter === "Todas"
+        ? true
+        : task.priority === priorityFilter;
 
-  return matchSearch && matchStatus && matchPriority;
-});
+    return matchSearch && matchStatus && matchPriority;
+  });
 
-  // ➕ CREAR / ✏️ EDITAR
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -143,7 +137,6 @@ export default function App() {
     setPriority("Media");
   };
 
-  // 🔄 CAMBIAR ESTADO
   const toggleStatus = (id) => {
     setTasks((prev) =>
       prev.map((t) =>
@@ -160,12 +153,10 @@ export default function App() {
     );
   };
 
-  // 🗑️ ELIMINAR
   const deleteTask = (id) => {
     setTasks((prev) => prev.filter((t) => t.id !== id));
   };
 
-  // ✏️ INICIAR EDICIÓN
   const startEdit = (task) => {
     setEditingId(task.id);
     setTitle(task.title);
@@ -173,7 +164,6 @@ export default function App() {
     setPriority(task.priority);
   };
 
-  // ❌ CANCELAR EDICIÓN
   const cancelEdit = () => {
     setEditingId(null);
     setTitle("");
@@ -181,10 +171,13 @@ export default function App() {
     setPriority("Media");
   };
 
-  // 📊 CONTADORES
   const total = tasks.length;
-  const pendientes = tasks.filter(t => t.status === "Pendiente").length;
-  const completadas = tasks.filter(t => t.status === "Completada").length;
+  const pendientes = tasks.filter(
+    (t) => t.status === "Pendiente"
+  ).length;
+  const completadas = tasks.filter(
+    (t) => t.status === "Completada"
+  ).length;
 
   return (
     <div className="app">
@@ -201,46 +194,56 @@ export default function App() {
         <p>Completadas: {completadas}</p>
       </section>
 
-      {/* SEARCH + FILTER */}
-   <section className="top-bar">
-  <input
-    placeholder="Buscar tarea..."
-    value={search}
-    onChange={(e) => setSearch(e.target.value)}
-  />
+      {/* 🔍 SEARCH + FILTER */}
+      <section className="top-bar">
 
-  <select
-    value={filter}
-    onChange={(e) => setFilter(e.target.value)}
-  >
-    <option value="Todas">Todos los estados</option>
-    <option value="Pendiente">Pendientes</option>
-    <option value="Completada">Completadas</option>
-  </select>
+        <h2>🔍 Buscar y filtrar tareas</h2>
 
-  <select
-    value={priorityFilter}
-    onChange={(e) => setPriorityFilter(e.target.value)}
-  >
-    <option value="Todas">Todas las prioridades</option>
-    <option value="Alta">Alta</option>
-    <option value="Media">Media</option>
-    <option value="Baja">Baja</option>
-  </select>
+        <input
+          placeholder="Buscar tarea..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
 
-</section>
+        <select
+          value={filter}
+          onChange={(e) => setFilter(e.target.value)}
+        >
+          <option value="Todas">Todos los estados</option>
+          <option value="Pendiente">Pendientes</option>
+          <option value="Completada">Completadas</option>
+        </select>
 
-      {/* FORM */}
-      <section>
+        <select
+          value={priorityFilter}
+          onChange={(e) => setPriorityFilter(e.target.value)}
+        >
+          <option value="Todas">Todas las prioridades</option>
+          <option value="Alta">Alta</option>
+          <option value="Media">Media</option>
+          <option value="Baja">Baja</option>
+        </select>
+
+      </section>
+
+      {/* 📝 FORM */}
+      <section className="form-card">
+
+        <h2>📝 Nueva tarea</h2>
+
+        <p className="form-text">
+          Completa la información para crear una nueva tarea.
+        </p>
+
         <form className="form" onSubmit={handleSubmit}>
           <input
-            placeholder="Título"
+            placeholder="Ingrese el título de la tarea"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
 
           <textarea
-            placeholder="Descripción"
+            placeholder="Ingrese una descripción"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
@@ -266,10 +269,15 @@ export default function App() {
         </form>
       </section>
 
-      {/* TASKS */}
+      {/* 📋 TASKS */}
       <main className="grid">
+        <h2>📋 Lista de tareas</h2>
+
         {filteredTasks.map((task) => (
-          <article key={task.id} className={`card ${task.status}`}>
+          <article
+            key={task.id}
+            className={`card ${task.status}`}
+          >
             <h3>{task.title}</h3>
             <p>{task.description}</p>
 

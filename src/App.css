@@ -8,9 +8,22 @@ body {
   padding: 20px;
 }
 
+/* ========================= */
+/* TITULOS */
+/* ========================= */
+
 h1 {
   text-align: center;
 }
+
+h2 {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+/* ========================= */
+/* STATS */
+/* ========================= */
 
 .stats {
   display: flex;
@@ -21,6 +34,10 @@ h1 {
   margin-bottom: 10px;
 }
 
+/* ========================= */
+/* SEARCH + FILTER */
+/* ========================= */
+
 .top-bar {
   display: flex;
   gap: 10px;
@@ -28,30 +45,52 @@ h1 {
   margin-bottom: 10px;
 }
 
+/* ========================= */
+/* FORM */
+/* ========================= */
+
 .form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  max-width: 400px;
+  gap: 15px;
+  max-width: 500px;
   margin: auto;
 }
 
-input, textarea, select {
-  padding: 10px;
+input,
+textarea,
+select {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  font-size: 16px;
 }
 
+/* ========================= */
+/* BOTONES */
+/* ========================= */
+
 button {
-  padding: 10px;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
   background: #222;
   color: white;
   border: none;
   border-radius: 6px;
+  transition: 0.2s;
 }
 
 button:hover {
-  opacity: 0.8;
+  opacity: 0.85;
+  transform: scale(1.02);
 }
+
+/* ========================= */
+/* GRID / CARDS */
+/* ========================= */
 
 .grid {
   display: grid;
@@ -65,9 +104,17 @@ button:hover {
   padding: 15px;
   border-radius: 10px;
   border-left: 5px solid gray;
+  transition: 0.2s;
 }
 
-/* 🎨 COLORES POR ESTADO */
+.card:hover {
+  transform: translateY(-3px);
+}
+
+/* ========================= */
+/* ESTADOS */
+/* ========================= */
+
 .card.Pendiente {
   border-left-color: orange;
 }
@@ -76,20 +123,10 @@ button:hover {
   border-left-color: green;
 }
 
-.priority {
-  font-size: 12px;
-  background: #eee;
-  padding: 3px 6px;
-  border-radius: 5px;
-}
+/* ========================= */
+/* HEADER */
+/* ========================= */
 
-.status {
-  font-weight: bold;
-}
-
-/* 🧼 MEJORA VISUAL PRO */
-
-/* HEADER MEJORADO */
 header {
   background: #4f46e5;
   color: white;
@@ -99,49 +136,39 @@ header {
   margin-bottom: 15px;
 }
 
-/* BOTONES MÁS PRO */
-button {
-  transition: 0.2s;
+/* ========================= */
+/* FORM CARD */
+/* ========================= */
+
+.form-card {
+  max-width: 700px;
+  margin: 35px auto;
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
 }
 
-button:hover {
-  transform: scale(1.03);
+.form-card h2 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: #333;
+  text-align: center;
 }
 
-/* BOTONES POR ACCIÓN (mejora visual) */
-button:nth-of-type(1) {
-  background: #10b981; /* verde */
+.form-text {
+  color: #666;
+  margin-bottom: 20px;
+  font-size: 15px;
+  text-align: center;
 }
 
-button:nth-of-type(2) {
-  background: #ef4444; /* rojo */
-}
-
-button:nth-of-type(3) {
-  background: #f59e0b; /* amarillo */
-}
-
-/* INPUTS MÁS LIMPIOS */
-input, textarea, select {
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  outline: none;
-}
-
-/* EFECTO CARD HOVER */
-.card {
-  transition: 0.2s;
-}
-
-.card:hover {
-  transform: translateY(-3px);
-}
-
-/* 📱 RESPONSIVE DESIGN */
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
 
 /* Tablet */
 @media (max-width: 768px) {
-
   .stats {
     flex-direction: column;
     text-align: center;
@@ -153,10 +180,6 @@ input, textarea, select {
     align-items: stretch;
   }
 
-  .form {
-    width: 100%;
-  }
-
   .grid {
     grid-template-columns: 1fr;
   }
@@ -164,7 +187,6 @@ input, textarea, select {
 
 /* Celular */
 @media (max-width: 480px) {
-
   .app {
     padding: 10px;
   }

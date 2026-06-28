@@ -19,7 +19,7 @@ h2 {
   margin-bottom: 10px;
 }
 
-/* FIX IMPORTANTE: títulos dentro de grid */
+/* FIX: título dentro del grid */
 .grid > h2 {
   grid-column: 1 / -1;
   text-align: center;
@@ -77,8 +77,8 @@ select {
 /* ========================= */
 
 button {
-  padding: 12px;
-  font-size: 16px;
+  padding: 8px 10px;
+  font-size: 13px;
   font-weight: bold;
   cursor: pointer;
   color: white;
@@ -90,23 +90,23 @@ button {
 
 button:hover {
   opacity: 0.85;
-  transform: scale(1.02);
+  transform: scale(1.03);
 }
 
 /* ========================= */
-/* BOTONES POR ACCIÓN */
+/* BOTONES POR ACCIÓN (COLORES VIVOS) */
 /* ========================= */
 
 .btn-add {
-  background: #22c55e; /* verde */
+  background: #22c55e; /* verde vivo */
 }
 
 .btn-delete {
-  background: #ef4444; /* rojo */
+  background: #ef4444; /* rojo vivo */
 }
 
 .btn-edit {
-  background: #f59e0b; /* amarillo */
+  background: #f59e0b; /* amarillo vivo */
 }
 
 /* ========================= */
@@ -126,10 +126,25 @@ button:hover {
   border-radius: 10px;
   border-left: 5px solid gray;
   transition: 0.2s;
+
+  /* FIX IMPORTANTE: mejor control interno */
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .card:hover {
   transform: translateY(-3px);
+}
+
+/* ========================= */
+/* BOTONES DENTRO DE CARDS (EVITA QUE SE MONTE TODO) */
+/* ========================= */
+
+.card button {
+  width: auto;
+  margin: 2px 4px 0 0;
+  display: inline-block;
 }
 
 /* ========================= */

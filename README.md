@@ -1,60 +1,48 @@
-# React Task Manager
+# 📋 React Task Manager
 
 Aplicación web desarrollada con React y Vite para administrar tareas personales.
 
-## Características
+## 🚀 Demo en vivo
 
-* Agregar nuevas tareas.
-* Editar tareas existentes.
-* Eliminar tareas.
-* Marcar tareas como Pendientes o Completadas.
-* Buscar tareas por nombre.
-* Filtrar tareas por estado.
-* Filtrar tareas por prioridad.
-* Persistencia de datos mediante LocalStorage.
-* Diseño responsive para computador, tablet y celular.
+👉 https://react-task-manager-katherine.netlify.app/
 
-## Tecnologías utilizadas
+## 📂 Repositorio
 
-* React
-* Vite
-* JavaScript (ES6+)
-* HTML5
-* CSS3
-* LocalStorage
+👉 https://github.com/katherine-vasquez/react-task-manager
 
-## Instalación
+## ✨ Funcionalidades
 
-Clonar el repositorio:
+- Agregar tareas
+- Editar tareas
+- Eliminar tareas
+- Buscar tareas
+- Filtrar por estado
+- Filtrar por prioridad
+- Marcar tareas como completadas
+- Validación de campos obligatorios
+- Persistencia de datos con LocalStorage
 
-```bash
-git clone https://github.com/katherine-vasquez/react-task-manager.git
-```
+## 🛠️ Tecnologías utilizadas
 
-Entrar al proyecto:
+- React
+- Vite
+- JavaScript
+- HTML5
+- CSS3
 
-```bash
-cd react-task-manager
-```
-
-Instalar dependencias:
+## ▶️ Ejecutar el proyecto localmente
 
 ```bash
 npm install
-```
-
-Ejecutar en modo desarrollo:
-
-```bash
 npm run dev
 ```
 
-Construir para producción:
+Luego abre:
 
-```bash
-npm run build
+```
+http://localhost:5173
 ```
 
-## Autor
+## 👩‍💻 Autor
 
 Katherine Vasquez

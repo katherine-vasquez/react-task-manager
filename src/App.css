@@ -136,3 +136,52 @@ input, textarea, select {
 .card:hover {
   transform: translateY(-3px);
 }
+
+/* 📱 RESPONSIVE DESIGN */
+
+/* Tablet */
+@media (max-width: 768px) {
+
+  .stats {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .top-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .form {
+    width: 100%;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Celular */
+@media (max-width: 480px) {
+
+  .app {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  input,
+  textarea,
+  select,
+  button {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .card {
+    padding: 12px;
+  }
+}

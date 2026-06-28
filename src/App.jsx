@@ -2,11 +2,73 @@ import { useEffect, useState } from "react";
 import "./App.css";
 
 export default function App() {
-  // 💾 ESTADO CON LOCALSTORAGE SEGURO
+  // 💾 ESTADO CON LOCALSTORAGE + TAREAS DE EJEMPLO
   const [tasks, setTasks] = useState(() => {
     try {
       const saved = localStorage.getItem("tasks");
-      return saved ? JSON.parse(saved) : [];
+
+      if (saved) {
+        return JSON.parse(saved);
+      }
+
+      return [
+        {
+          id: 1,
+          title: "Arreglarme para ir a la clase",
+          description: "Preparar la ropa, desayunar y salir con tiempo.",
+          priority: "Alta",
+          status: "Pendiente",
+        },
+        {
+          id: 2,
+          title: "Asistir a clases",
+          description: "Tomar apuntes y participar en las actividades.",
+          priority: "Alta",
+          status: "pendiente",
+        },
+        {
+          id: 3,
+          title: "Hacer la tarea de programación",
+          description: "Finalizar el ejercicio de React.",
+          priority: "Alta",
+          status: "Pendiente",
+        },
+        {
+          id: 4,
+          title: "Comprar alimentos",
+          description: "Comprar frutas, verduras, leche y pan.",
+          priority: "Media",
+          status: "Pendiente",
+        },
+        {
+          id: 5,
+          title: "Llamar a mi mamá",
+          description: "Conversar un momento y saludarla.",
+          priority: "Media",
+          status: "Completada",
+        },
+        {
+          id: 6,
+          title: "Hacer ejercicio",
+          description: "Caminar o entrenar durante 30 minutos.",
+          priority: "Baja",
+          status: "Pendiente",
+        },
+        {
+          id: 7,
+          title: "Organizar el escritorio",
+          description: "Ordenar documentos y limpiar el área de trabajo.",
+          priority: "Baja",
+          status: "completada",
+        },
+        {
+          id: 8,
+          title: "Leer un capítulo de el libro de programacion",
+          description: "Dedicar al menos 20 minutos a la lectura.",
+          priority: "Media",
+          status: "Completada",
+        },
+      ];
     } catch (error) {
       return [];
     }
@@ -20,6 +82,7 @@ export default function App() {
 
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("Todas");
+  const [priorityFilter, setPriorityFilter] = useState("Todas");
 
   // 💾 GUARDAR EN LOCALSTORAGE
   useEffect(() => {
@@ -27,16 +90,23 @@ export default function App() {
   }, [tasks]);
 
   // 🔍 FILTRADO + BÚSQUEDA
-  const filteredTasks = tasks.filter((task) => {
-    const matchSearch = task.title
-      .toLowerCase()
-      .includes(search.toLowerCase());
+ const filteredTasks = tasks.filter((task) => {
+  const matchSearch = task.title
+    .toLowerCase()
+    .includes(search.toLowerCase());
 
-    const matchFilter =
-      filter === "Todas" ? true : task.status === filter;
+  const matchStatus =
+    filter === "Todas"
+      ? true
+      : task.status === filter;
 
-    return matchSearch && matchFilter;
-  });
+  const matchPriority =
+    priorityFilter === "Todas"
+      ? true
+      : task.priority === priorityFilter;
+
+  return matchSearch && matchStatus && matchPriority;
+});
 
   // ➕ CREAR / ✏️ EDITAR
   const handleSubmit = (e) => {
@@ -132,19 +202,33 @@ export default function App() {
       </section>
 
       {/* SEARCH + FILTER */}
-      <section className="top-bar">
-        <input
-          placeholder="Buscar tarea..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
+   <section className="top-bar">
+  <input
+    placeholder="Buscar tarea..."
+    value={search}
+    onChange={(e) => setSearch(e.target.value)}
+  />
 
-        <select onChange={(e) => setFilter(e.target.value)}>
-          <option value="Todas">Todas</option>
-          <option value="Pendiente">Pendientes</option>
-          <option value="Completada">Completadas</option>
-        </select>
-      </section>
+  <select
+    value={filter}
+    onChange={(e) => setFilter(e.target.value)}
+  >
+    <option value="Todas">Todas</option>
+    <option value="Pendiente">Pendientes</option>
+    <option value="Completada">Completadas</option>
+  </select>
+
+  <select
+    value={priorityFilter}
+    onChange={(e) => setPriorityFilter(e.target.value)}
+  >
+    <option value="Todas">Todas las prioridades</option>
+    <option value="Alta">Alta</option>
+    <option value="Media">Media</option>
+    <option value="Baja">Baja</option>
+  </select>
+
+</section>
 
       {/* FORM */}
       <section>

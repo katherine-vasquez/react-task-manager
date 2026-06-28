@@ -213,7 +213,7 @@ export default function App() {
     value={filter}
     onChange={(e) => setFilter(e.target.value)}
   >
-    <option value="Todas">Todas</option>
+    <option value="Todas">Todos los estados</option>
     <option value="Pendiente">Pendientes</option>
     <option value="Completada">Completadas</option>
   </select>

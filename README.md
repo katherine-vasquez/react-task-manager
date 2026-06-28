@@ -1,16 +1,60 @@
-# React + Vite
+# React Task Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Aplicación web desarrollada con React y Vite para administrar tareas personales.
 
-Currently, two official plugins are available:
+## Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* Agregar nuevas tareas.
+* Editar tareas existentes.
+* Eliminar tareas.
+* Marcar tareas como Pendientes o Completadas.
+* Buscar tareas por nombre.
+* Filtrar tareas por estado.
+* Filtrar tareas por prioridad.
+* Persistencia de datos mediante LocalStorage.
+* Diseño responsive para computador, tablet y celular.
 
-## React Compiler
+## Tecnologías utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* React
+* Vite
+* JavaScript (ES6+)
+* HTML5
+* CSS3
+* LocalStorage
 
-## Expanding the Oxlint configuration
+## Instalación
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+Clonar el repositorio:
+
+```bash
+git clone https://github.com/katherine-vasquez/react-task-manager.git
+```
+
+Entrar al proyecto:
+
+```bash
+cd react-task-manager
+```
+
+Instalar dependencias:
+
+```bash
+npm install
+```
+
+Ejecutar en modo desarrollo:
+
+```bash
+npm run dev
+```
+
+Construir para producción:
+
+```bash
+npm run build
+```
+
+## Autor
+
+Katherine Vasquez

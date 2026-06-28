@@ -23,7 +23,7 @@ export default function App() {
           title: "Asistir a clases",
           description: "Tomar apuntes y participar en las actividades.",
           priority: "Alta",
-          status: "pendiente",
+          status: "Pendiente", // FIX
         },
         {
           id: 3,
@@ -58,11 +58,11 @@ export default function App() {
           title: "Organizar el escritorio",
           description: "Ordenar documentos y limpiar el área de trabajo.",
           priority: "Baja",
-          status: "completada",
+          status: "Completada", // FIX
         },
         {
           id: 8,
-          title: "Leer un capítulo de el libro de programacion",
+          title: "Leer un capítulo de el libro de programación",
           description: "Dedicar al menos 20 minutos a la lectura.",
           priority: "Media",
           status: "Completada",
@@ -182,21 +182,17 @@ export default function App() {
   return (
     <div className="app">
 
-      {/* HEADER */}
       <header className="header">
         <h1>📋 Gestor de Tareas</h1>
       </header>
 
-      {/* STATS */}
       <section className="stats">
         <p>Total: {total}</p>
         <p>Pendientes: {pendientes}</p>
         <p>Completadas: {completadas}</p>
       </section>
 
-      {/* 🔍 SEARCH + FILTER */}
       <section className="top-bar">
-
         <h2>🔍 Buscar y filtrar tareas</h2>
 
         <input
@@ -223,12 +219,9 @@ export default function App() {
           <option value="Media">Media</option>
           <option value="Baja">Baja</option>
         </select>
-
       </section>
 
-      {/* 📝 FORM */}
       <section className="form-card">
-
         <h2>📝 Nueva tarea</h2>
 
         <p className="form-text">
@@ -263,13 +256,12 @@ export default function App() {
 
           {editingId && (
             <button type="button" onClick={cancelEdit}>
-              Cancelar
+              Cancelar edición
             </button>
           )}
         </form>
       </section>
 
-      {/* 📋 TASKS */}
       <main className="grid">
         <h2>📋 Lista de tareas</h2>
 
@@ -299,7 +291,6 @@ export default function App() {
         ))}
       </main>
 
-      {/* FOOTER */}
       <footer className="footer">
         <p>Gestor de tareas - Proyecto React</p>
       </footer>
